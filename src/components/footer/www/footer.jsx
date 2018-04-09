@@ -191,7 +191,7 @@ const Footer = props => (
                         </a>
                     </dd>
                     <dd>
-                        <a href="http://day.scratch.mit.edu/">
+                        <a href="https://day.scratch.mit.edu/">
                             Scratch Day
                         </a>
                     </dd>
