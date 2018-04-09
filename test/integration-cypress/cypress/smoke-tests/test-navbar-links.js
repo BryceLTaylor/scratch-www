@@ -2,6 +2,10 @@ const baseUrl = Cypress.config('baseUrl');
 const username = Cypress.env('USERNAME');
 const password = Cypress.env('PASSWORD');
 
+Cypress.on('uncaught:exception', () => {
+    return false;
+});
+
 describe('test links in nav bar while signed out', function (){
     beforeEach(function (){
         cy.visit('');

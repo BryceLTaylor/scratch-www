@@ -137,3 +137,15 @@ By default Cypress deletes all cookies between tests.  This means that if you wa
 The gui, which can be downloaded at cypress.io, is useful especially if you want to look back through the state of tests after they have been run.  If you run in chrome from the command line the browser closes at the end of the tests.
 
 The gui captures the state of the DOM at each step of each test.  You can mouse over a step and it will show you want was happening at that time.  If you click on the step you can even inspect elements, which is useful for debugging.
+
+###Canceling Tests
+Sometimes a test hangs, which happens sometimes when it fails, it leaves the client open and the process running if you ran it from the command line.  If this happens you must both quite Chrome AND cmd-c the process in the command line.  If you don't cmd-c the process will automatically retry the test, opening chrome again.  If you don't quit Chrome then when you run the test again it sometimes gets confused about the window being open.  It's best if you do both and everything works fine.
+
+###Console Errors from Application
+Cypress auttomatically fails a test if there is an error in the console during a test, even if the result is that the page loads and functions normally.  This causes tests to give false negatives, so to turn it and make it so that each test is only checking what you want it to you can add the following code to the top of your test file.
+```
+Cypress.on('uncaught:exception', () => {
+    return false;
+});
+```
+Check the Cypress documentation for more ways to use this.  There is a way to have it ignore specific exceptions in specific tests as well.
