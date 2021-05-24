@@ -7,6 +7,7 @@ const {
     buildDriver
 } = new SeleniumHelper();
 
+// this user must be a scratcher
 let username = process.env.SMOKE_USERNAME + '1';
 let password = process.env.SMOKE_PASSWORD;
 let remote = process.env.SMOKE_REMOTE || false;
